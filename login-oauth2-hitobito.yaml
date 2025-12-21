@@ -1,0 +1,21 @@
+enabled: true
+
+providers:
+  hitobito:
+    enabled: false
+    client_id: ''
+    client_secret: ''
+    domain: ''
+    options:
+      scope: ['email']
+
+admin:
+  providers:
+    hitobito:
+      enabled: false
+      client_id: ''
+      client_secret: ''
+      domain: ''
+      options:
+        scope: ['email']
+    
