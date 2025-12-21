@@ -1,0 +1,9 @@
+{% set background_color = config.plugins['login-oauth2-hitobito'].button_background_color ?? '#6c8b40' %}
+{% set text_color = config.plugins['login-oauth2-hitobito'].button_text_color ?? '#fff' %}
+{% set logo = config.plugins['login-oauth2-hitobito'].button_logo|first.name ?? 'hitobito.svg' %}
+{% set logo_path = '@oauth2-media/' ~ logo %}
+{% set text = config.plugins['login-oauth2-hitobito'].button_text ?? 'Hitobito' %}
+<button style="color: {{ text_color }}; fill: {{ text_color }}; background-color: {{ background_color }};" name="oauth2" type="submit" value="hitobito" class="hitobito">
+    {% include( logo_path ) %}
+    <span>{{ text }}</span>
+</button>

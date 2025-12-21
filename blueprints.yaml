@@ -1,0 +1,159 @@
+name: Login OAuth2 Hitobito
+type: plugin
+slug: login-oauth2-hitobito
+version: 1.0.0
+description: Login OAuth2 Providers for [Hitobito](https://github.com/hitobito/hitobito/tree/master).
+icon: plug
+author:
+  name: Pfadi Safenwil
+homepage: https://github.com/stabiliora/grav-plugin-login-oauth2-hitobito
+keywords: grav, plugin, authentication, oauth2, hitobito, midata
+license: MIT
+dependencies:
+  - { name: login-oauth2, version: '~2.0' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
+    instructions:
+      type: display
+      markdown: true
+      description: This plugin requires [Login OAuth2](/admin/plugins/login-oauth2) to function. There are several settings that must be set in that plugin to ensure these extra providers will function (`Configuration` and `Admin`)
+
+    button_background_color:
+      type: colorpicker
+      label: Custom Button Background Color
+      default: ''
+    
+    button_text_color:
+      type: colorpicker
+      label: Custom Button Text Color
+      default: ''
+
+    button_logo:
+      type: file
+      label: Custom Button Logo
+      destination: 'plugins://login-oauth2-hitobito/media'
+      multiple: false
+      filesize: 0.1
+      accept:
+        - image/svg+xml
+
+    button_text:
+      type: text
+      label: Custom Button Text
+      placeholder: Hitobito
+
+    hitobito:
+      type: fieldset
+      title: Hitobito
+      collapsible: false
+
+      fields:
+
+        hitobito_columns:
+          type: columns
+
+          fields:
+
+            hitobito_column_left:
+              type: column
+
+              fields:
+
+                hitobito.site:
+                  type: display
+                  style: vertical
+                  content: '<h3>Site</h3>'
+
+                providers.hitobito.enabled:
+                  type: toggle
+                  label: Enabled
+                  highlight: 1
+                  default: 0
+                  options:
+                    1: Enabled
+                    0: Disabled
+                  validate:
+                    type: bool
+
+                providers.hitobito.client_id:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.CLIENT_ID
+
+                providers.hitobito.client_secret:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.CLIENT_SECRET
+
+                providers.hitobito.options.scope:
+                  type: selectize
+                  size: large
+                  label: PLUGIN_LOGIN_OAUTH2.SCOPE
+                  classes: fancy
+                  validate:
+                    type: commalist
+
+                providers.hitobito.domain:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.RESTRICT_DOMAIN
+                  placeholder: https://my.hitobito.example
+
+
+            hitobito_column_right:
+              type: column
+
+              fields:
+
+                hitobito.admin:
+                  type: display
+                  style: vertical
+                  content: '<h3>Admin</h3>'
+
+                admin.providers.hitobito.enabled:
+                  type: toggle
+                  label: Enabled
+                  highlight: 1
+                  default: 0
+                  options:
+                    1: Enabled
+                    0: Disabled
+                  validate:
+                    type: bool
+
+                admin.providers.hitobito.client_id:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.CLIENT_ID
+
+                admin.providers.hitobito.client_secret:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.CLIENT_SECRET
+
+                admin.providers.hitobito.options.scope:
+                  type: selectize
+                  size: large
+                  label: PLUGIN_LOGIN_OAUTH2.SCOPE
+                  classes: fancy
+                  validate:
+                    type: commalist
+
+                admin.providers.hitobito.domain:
+                  type: text
+                  label: PLUGIN_LOGIN_OAUTH2.RESTRICT_DOMAIN
+                  placeholder: https://my.hitobito.example
+
+        providers.hitobito.description:
+          type: display
+          style: vertical
+          content: '[<i class="fa fa-book"></i> Hitobito OAuth2 from the official documentation](https://github.com/hitobito/hitobito/blob/master/doc/developer/people/oauth.md)'
+          markdown: true
