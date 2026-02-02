@@ -108,7 +108,18 @@ form:
                   type: text
                   label: PLUGIN_LOGIN_OAUTH2.RESTRICT_DOMAIN
                   placeholder: https://my.hitobito.example
-
+                
+                providers.hitobito.allowed:
+                  type: list
+                  style: horizontal
+                  label: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_LABEL
+                  help: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_HELP
+                  btnLabel: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_BTNLABEL
+                  fields:
+                    .group_id:
+                      type: number
+                      label: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_GROUPID_LABEL
+                      help: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_GROUPID_HELP
 
             hitobito_column_right:
               type: column
@@ -151,6 +162,18 @@ form:
                   type: text
                   label: PLUGIN_LOGIN_OAUTH2.RESTRICT_DOMAIN
                   placeholder: https://my.hitobito.example
+                
+                admin.providers.hitobito.allowed:
+                  type: list
+                  style: horizontal
+                  label: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_LABEL
+                  help: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_HELP
+                  btnLabel: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_BTNLABEL
+                  fields:
+                    .group_id:
+                      type: number
+                      label: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_GROUPID_LABEL
+                      help: PLUGIN_LOGIN_OAUTH2_HITOBITO.ALLOWED_GROUPID_HELP
 
         providers.hitobito.description:
           type: display

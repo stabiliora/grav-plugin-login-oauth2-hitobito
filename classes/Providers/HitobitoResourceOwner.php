@@ -89,6 +89,24 @@ class HitobitoResourceOwner implements ResourceOwnerInterface
     }
 
     /**
+     * Roles of the user.
+     */
+    public function getRoles(): array
+    {
+        return $this->get('roles');
+    }
+
+    /**
+     * Group IDs of the user's roles.
+     */
+    public function getGroupIDs(): array
+    {
+        $roles = $this->get('roles');
+        $map = array_map( function($var){return $var["group_id"]; }, $roles);
+        return array_unique( array_values($map) );
+    }
+
+    /**
      * Return all of the owner details available as an array.
      */
     public function toArray(): array

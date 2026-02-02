@@ -1,8 +1,13 @@
 # Changelog
 
-## v1.0.0
+## v1.1.0 - 2026-02-02
 
-Date: December 2025
+### Added
 
-1. [](#new)
-    * Initial version
+* Allow or disallow users based on groups their in.
+
+## v1.0.0 - 2025-12-21
+
+### Added
+
+* Initial version.

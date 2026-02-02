@@ -1,6 +1,5 @@
 <?php
 
-# namespace Omines\OAuth2\Client\Provider\Exception;
 namespace Grav\Plugin\Login\OAuth2\Providers\Exception;
 
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
@@ -17,7 +16,6 @@ class HitobitoIdentityProviderException extends IdentityProviderException
     {
         return static::fromResponse(
             $response,
-            #isset($data['message']) ? $data['message'] : $response->getReasonPhrase()
             serialize($data)
         );
     }
