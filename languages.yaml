@@ -1,0 +1,14 @@
+en:
+  PLUGIN_LOGIN_OAUTH2_HITOBITO:
+    ALLOWED_LABEL: 'Allowed Users'
+    ALLOWED_HELP: 'Only users with roles in the listed groups are allowed to sign in. If no group is set, all authenticated users are allowed to sign in.'
+    ALLOWED_BTNLABEL: 'Add group'
+    ALLOWED_GROUPID_LABEL: 'Group ID'
+    ALLOWED_GROUPID_HELP: 'ID of the group of which users are allowed to sign in. The group ID can be seen in the URL. For example, in the URL https://my.hitobito.example/en/groups/123/people, 123 is the group ID.'
+de:
+  PLUGIN_LOGIN_OAUTH2_HITOBITO:
+    ALLOWED_LABEL: 'Erlaubte Benutzer'
+    ALLOWED_HELP: 'Nur Personen mit Rollen in den konfigurierten Gruppen dürfen sich anmelden. Falls keine Gruppen konfiguriert sind, dürfen sich alle authentifizierten Personen anmelden.'
+    ALLOWED_BTNLABEL: 'Gruppe hinzufügen'
+    ALLOWED_GROUPID_LABEL: 'Gruppen-ID'
+    ALLOWED_GROUPID_HELP: 'ID der Gruppe wessen Personen sich anmelden dürfen. Die Gruppen-ID ist in der URL sichtbar. Zum Beispiel, in der URL https://my.hitobito.example/de/groups/123/people ist 123 die Gruppen-ID.'

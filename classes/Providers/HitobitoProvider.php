@@ -9,7 +9,7 @@ use League\OAuth2\Client\Token\AccessToken;
 
 class HitobitoProvider extends BaseProvider
 {
-    
+
     protected $name = 'Hitobito';
     protected $classname = Hitobito::class;
 
@@ -45,6 +45,8 @@ class HitobitoProvider extends BaseProvider
 
     public function getUserData($user)
     {
+        
+
         $data_user = [
             'id'         => $user->getId(),
             'login'      => $user->getEmail(),
@@ -52,7 +54,41 @@ class HitobitoProvider extends BaseProvider
             'all_data'   => $user->toArray()
         ];
 
+        $this->validateAccessPermission($user->getGroupIDs());
+
         return $data_user;
+    }
+
+    /**
+     * Validate whether user is allowed to access the application.
+     * User is allowed when the users groups (where the user has roles in) matches the configured group IDs.
+     * If no group IDs are configured, ALL authenticated users will be permitted.
+     * 
+     * @param array $groupIDs IDs of the groups the authenticated user has roles in.
+     * @return void
+     */
+    function validateAccessPermission(array $groupIDs) {
+        
+        # Get config
+        $allowed = array_unique(
+            array_values(
+                array_map(
+                    function($var){return $var["group_id"]; },
+                    $this->config->get('providers.hitobito.allowed', Array())
+                )
+            )
+        );
+
+        # Allow user login if no groups have been configured
+        if ( count($allowed) != 0 ) {
+            
+            # check if user is in allowed group
+            $match = count( array_intersect($allowed, $groupIDs) );
+
+            if ($match < 1) {
+                throw new \Exception("User not allowed (has no role in any of the allowed groups)");
+            }
+        }
     }
 
     /**
@@ -63,14 +99,11 @@ class HitobitoProvider extends BaseProvider
      */
     public function getResourceOwner(AccessToken $token): ResourceOwnerInterface
     {
-        
         $options = [
             'headers' => [
                 'X-Scope' => $this->config->get('providers.hitobito.options.scope')[0]
             ]
         ];
-        
         return $this->provider->getResourceOwner($token, $options);
     }
-
 }
