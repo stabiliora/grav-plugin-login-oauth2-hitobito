@@ -4,7 +4,7 @@
 
 ### Added
 
-* Allow or disallow users based on groups their in.
+* Allow or disallow users based on the groups they're in.
 
 ## v1.0.0 - 2025-12-21
 
