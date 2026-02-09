@@ -52,27 +52,35 @@ class HitobitoResourceOwner implements ResourceOwnerInterface
     }
 
     /**
-     * The full name of the owner.
-     */
-    public function getName(): string
-    {
-        return $this->get('name');
-    }
-
-    /**
-     * Username of the owner.
-     */
-    public function getUsername(): string
-    {
-        return $this->get('username');
-    }
-
-    /**
      * Email address of the owner.
      */
     public function getEmail(): string
     {
         return $this->get('email');
+    }
+
+    /**
+     * The first name of the owner.
+     */
+    public function getFirstname(): string
+    {
+        return $this->get('first_name');
+    }
+
+    /**
+     * The last name of the owner.
+     */
+    public function getLastname(): string
+    {
+        return $this->get('last_name');
+    }
+
+    /**
+     * Nickname of the owner.
+     */
+    public function getNickname(): string
+    {
+        return $this->get('nickname');
     }
 
     public function getToken(): AccessToken
@@ -101,7 +109,7 @@ class HitobitoResourceOwner implements ResourceOwnerInterface
      */
     public function getGroupIDs(): array
     {
-        $roles = $this->get('roles');
+        $roles = $this->getRoles();
         $map = array_map( function($var){return $var["group_id"]; }, $roles);
         return array_unique( array_values($map) );
     }

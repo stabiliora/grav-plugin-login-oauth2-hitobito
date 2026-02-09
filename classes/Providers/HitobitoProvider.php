@@ -45,17 +45,15 @@ class HitobitoProvider extends BaseProvider
 
     public function getUserData($user)
     {
-        
-
         $data_user = [
             'id'         => $user->getId(),
             'login'      => $user->getEmail(),
             'email'      => $user->getEmail(),
-            'all_data'   => $user->toArray()
+            'firstname'  => $user->getFirstname(),
+            'lastname'  => $user->getLastname(),
+            'fullname'   => $user->getNickname()
         ];
-
         $this->validateAccessPermission($user->getGroupIDs());
-
         return $data_user;
     }
 
