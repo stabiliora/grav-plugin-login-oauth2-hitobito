@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1 - 2026-02-09
+
+### Fixed
+
+* Fix owner information: Remove 'all_data' and add firstname, lastname and nickname instead.
+
 ## v1.1.0 - 2026-02-02
 
 ### Added
